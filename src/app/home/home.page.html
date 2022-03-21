@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+    <ion-buttons slot="secondary">
+      <ion-button (click)="presentModal()">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div >
+{{ibanGermany | ibanFormatter}}
+    <ion-list>
+      <ion-item>
+        <ion-col size="2">
+          <small>Account<br>holder</small>
+        </ion-col>
+        <ion-col size="2">
+          <small>IBAN</small>
+        </ion-col>
+        <ion-col size="2">
+          <small>Date</small>
+        </ion-col>
+        <ion-col size="2">
+          <small>Amount</small>
+        </ion-col>
+        <ion-col size="4">
+          <small>Note</small>
+        </ion-col>
+      </ion-item>
+      
+      <ion-item *ngFor="let item of details; let i = index;" (click)="edit_detail(i, item)">
+        <ion-col size="2">
+          <div>{{item.account_holder}}</div>
+        </ion-col>
+        <ion-col size="2">
+          <div>{{item.ibanReactive}}</div>
+        </ion-col>
+        <ion-col size="2">
+          <div>{{item.date}}</div>
+        </ion-col>
+        <ion-col size="2">
+          <div>{{item.amount}}</div>
+        </ion-col>
+        <ion-col size="4">
+          <div>{{item.note}}</div>
+        </ion-col>
+      </ion-item>
+      
+    </ion-list>
+
+  </div>
+</ion-content>
